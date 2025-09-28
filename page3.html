@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            min-height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hidden {
+            opacity: 0 !important;
+            pointer-events: none;
+            height: 0 !important;
+            margin: 0 !important;
+            overflow: hidden;
+        }
+
+        /* Extra large, centered headings */
+        h1, h2, h3, h4, h5, h6, h7 {
+            font-size: 4em;
+            line-height: 1.2;
+            margin: 0.25em 0;
+            max-width: 90vw;
+            opacity: 1;
+            transition: opacity 600ms ease;
+        }
+    </style>
+</head>
+<body>
+    <h1> "For Filipino Americans, it's a battle for recognition, for identity in a culture where, for the mainstream, Asians tend to fade into a monochromatic racialized 'other.'"</h1>
+    <h2> - Jose Antonio Vargas</h2>
+    <h3 class="hidden"> It's time to change.</h3>
+    <h4 class="hidden"> To not be an other.</h4>
+    <h5 class="hidden"> To not be Ligalig.</h5>
+    <h6 class="hidden"> Pagkamulat</h6>
+    <h7 class="hidden"> Awakening.</h7>
+
+<script>
+    (function() {
+        const h1 = document.querySelector('h1');
+        const h2 = document.querySelector('h2');
+        const sequence = ['h3', 'h4', 'h5', 'h6', 'h7'];
+        let currentIndex = 0;
+
+        function showSelector(selector) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+            // ensure it's hidden first for consistent fade-in
+            el.classList.add('hidden');
+            requestAnimationFrame(() => {
+                el.classList.remove('hidden');
+            });
+        }
+
+        function hideElement(el) {
+            if (!el) return;
+            el.classList.add('hidden');
+        }
+
+        // First click: hide h1 and h2, show h3
+        if (h1) {
+            h1.addEventListener('click', function() {
+                hideElement(h1);
+                hideElement(h2);
+                showSelector(sequence[currentIndex]);
+            });
+        }
+
+        // For subsequent clicks: clicking current heading reveals the next
+        sequence.forEach((tag, idx) => {
+            const el = document.querySelector(tag);
+            if (!el) return;
+            el.addEventListener('click', function() {
+                // If it's not the last, hide current and show next
+                if (idx < sequence.length - 1) {
+                    el.classList.add('hidden');
+                    currentIndex = idx + 1;
+                    showSelector(sequence[currentIndex]);
+                } else {
+                    // Last (h7) clicked → go to page 4
+                    window.location.href = 'page4.html';
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
