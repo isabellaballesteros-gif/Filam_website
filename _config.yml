@@ -1,4 +1,17 @@
+<<<<<<< HEAD
+# Completely disable Jekyll
+theme: null
+plugins: []
+markdown: kramdown
+highlighter: rouge
+safe: true
+exclude:
+  - README.md
+  - .gitignore
+  - .github/
+=======
 # Disable Jekyll processing
 plugins: []
 markdown: kramdown
 highlighter: rouge
+>>>>>>> c17692d0dd186451bba4cbc812bf4763db3938e1
