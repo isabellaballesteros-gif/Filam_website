@@ -1,10 +1,4 @@
-# Completely disable Jekyll
-theme: null
+# Disable Jekyll processing
 plugins: []
 markdown: kramdown
 highlighter: rouge
-safe: true
-exclude:
-  - README.md
-  - .gitignore
-  - .github/
