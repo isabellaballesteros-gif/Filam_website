@@ -4,10 +4,1266 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filipino Mythology - Interactive Dataset</title>
+    <style>
+        /* Basic Page 4 Styles */
+        .page4-body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .page4-body * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 56, 168, 0.1) 0%, rgba(206, 17, 38, 0.1) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 3px solid #0038a8;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #0038a8, #ce1126, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.9;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        /* Population Statistics */
+        .population-stats {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 60px 0;
+        }
+
+        .population-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .population-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .population-number {
+            font-size: 4em;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .population-label {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .population-description {
+            font-size: 1.1em;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .population-visual {
+            width: 100%;
+        }
+
+        .population-chart {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chart-bar {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 40px;
+            border-radius: 20px;
+            transition: width 2s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .bar-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .chart-breakdown {
+            margin-top: 20px;
+        }
+
+        .breakdown-item {
+            margin-bottom: 20px;
+        }
+
+        .breakdown-bar {
+            height: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .breakdown-fill {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 2s ease-in-out;
+        }
+
+        .breakdown-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            text-align: left;
+        }
+
+
+        /* Pie Chart Styles */
+        .pie-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+        
+        .pie-chart-wrapper {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex: 1;
+            max-width: 350px;
+            min-width: 280px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pie-chart-wrapper:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+        
+        .pie-chart-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .pie-chart-wrapper:hover::before {
+            left: 100%;
+        }
+        
+        .pie-chart-title {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pie-chart-wrapper:hover .pie-chart-title {
+            color: #ffffff;
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            background: conic-gradient(
+                #0038a8 0deg 144deg,
+                #ce1126 144deg 216deg,
+                #ffd700 216deg 252deg,
+                #00ff88 252deg 360deg
+            );
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: brightness(1);
+        }
+        
+        .pie-chart:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        .pie-chart:active {
+            transform: scale(1.05) rotate(0deg);
+        }
+        
+        .pie-chart-wrapper:hover .pie-chart {
+            animation: rotate-slow 3s linear infinite;
+        }
+        
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pie-chart::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pie-chart-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .pie-chart-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .legend-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+        
+        .legend-item:active {
+            transform: translateX(7px) scale(0.98);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .legend-item:hover .legend-color {
+            transform: scale(1.4);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .legend-text {
+            color: #ffffff;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .legend-item:hover .legend-text {
+            color: #ffd700;
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        .legend-percentage {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-left: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .legend-item:hover .legend-percentage {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        
+        /* Specific pie chart variations */
+        .identity-pie-chart {
+            background: conic-gradient(
+                #0038a8 0deg 126deg,
+                #ce1126 126deg 234deg,
+                #ffd700 234deg 288deg,
+                #00ff88 288deg 360deg
+            );
+        }
+        
+        .heritage-pie-chart {
+            background: conic-gradient(
+                #ff6b6b 0deg 108deg,
+                #4ecdc4 108deg 216deg,
+                #45b7d1 216deg 288deg,
+                #96ceb4 288deg 360deg
+            );
+        }
+        
+        .racial-pie-chart {
+            background: conic-gradient(
+                #8e44ad 0deg 90deg,
+                #3498db 90deg 180deg,
+                #e74c3c 180deg 270deg,
+                #f39c12 270deg 360deg
+            );
+        }
+        
+        /* Interactive pulse animation for active pie chart */
+        .pie-chart.active {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        /* Tooltip for pie charts */
+        .pie-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .pie-tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Click ripple effect */
+        .pie-chart-wrapper.clicked {
+            animation: ripple-effect 0.6s ease-out;
+        }
+        
+        @keyframes ripple-effect {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Mythology Section */
+        .mythology-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 60px 0;
+        }
+
+        .mythology-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .mythology-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffd700, #ce1126, #0038a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .mythology-header p {
+            font-size: 1.4em;
+            opacity: 0.8;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .search-box {
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            min-width: 300px;
+        }
+
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffd700;
+        }
+
+        .filter-btn.active {
+            background: #ffd700;
+            color: #0a0a0a;
+            border-color: #ffd700;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .mythology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            justify-items: center;
+            width: 100%;
+        }
+
+        .mythology-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .mythology-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .card-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .mythology-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-description {
+            padding: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .card-details {
+            padding: 0 20px 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-details.show {
+            max-height: 1000px;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .powers-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .power-tag {
+            background: rgba(0, 56, 168, 0.3);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #0038a8, #ce1126);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .population-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pie-chart-container {
+                flex-direction: column;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .pie-chart-wrapper {
+                min-width: auto;
+                width: 100%;
+                max-width: none;
+                flex: none;
+            }
+
+            .pie-chart {
+                width: 150px;
+                height: 150px;
+            }
+
+            .pie-chart::before {
+                width: 75px;
+                height: 75px;
+            }
+
+            .pie-chart-label {
+                font-size: 1em;
+            }
+
+            .mythology-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .mythology-header h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .map-legend {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>Page 4 - Interactive Mythology</h1>
-    <p>This page will be restored with full functionality.</p>
-    <a href="titlepage.html">← Back to Home</a>
+<body class="page4-body">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="header">
+            <h1>Filipino American Identity</h1>
+            <p>Understanding our cultural heritage and identity</p>
+        </div>
+    </div>
+
+    <!-- Filipino American Population Section -->
+    <section class="population-stats">
+        <h2>Filipino Americans in the United States</h2>
+        <div class="population-container">
+            <div class="population-card">
+                <div class="population-number" id="totalPopulation">4,200,000</div>
+                <div class="population-label">Total Filipino Americans</div>
+                <div class="population-description">As of 2021, Filipino Americans represent the third-largest Asian American group in the United States</div>
+            </div>
+            
+            <div class="population-visual">
+                <div class="population-chart">
+                    <div class="chart-bar" data-percentage="100" data-label="Total Filipino Americans">
+                        <div class="bar-fill" style="width: 100%; background: linear-gradient(90deg, #0038a8, #ce1126);"></div>
+                        <div class="bar-label">4.2M Total</div>
+                    </div>
+                    
+                    <div class="chart-breakdown">
+                        <div class="breakdown-item">
+                            <div class="breakdown-bar" data-percentage="85">
+                                <div class="breakdown-fill" style="width: 85%; background: #0038a8;"></div>
+                            </div>
+                            <div class="breakdown-label">Born in Philippines: 3.57M (85%)</div>
+                        </div>
+                        
+                        <div class="breakdown-item">
+                            <div class="breakdown-bar" data-percentage="15">
+                                <div class="breakdown-fill" style="width: 15%; background: #ce1126;"></div>
+                            </div>
+                            <div class="breakdown-label">Born in US: 630K (15%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="population-facts">
+            <div class="fact-card">
+                <div class="fact-icon">📍</div>
+                <div class="fact-content">
+                    <h4>Top States</h4>
+                    <p>California (1.6M), Hawaii (370K), Texas (200K), Washington (150K), Nevada (140K)</p>
+                </div>
+            </div>
+            
+            <div class="fact-card">
+                <div class="fact-icon">🏙️</div>
+                <div class="fact-content">
+                    <h4>Major Cities</h4>
+                    <p>Los Angeles, San Francisco, San Diego, New York, Seattle</p>
+                </div>
+            </div>
+            
+            <div class="fact-card">
+                <div class="fact-icon">📈</div>
+                <div class="fact-content">
+                    <h4>Growth Rate</h4>
+                    <p>Fastest growing Asian American group, increasing by 38% from 2010-2020</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Identity Statistics Section -->
+    <section class="identity-stats">
+        <h2>How Filipino Americans Describe Their Identity</h2>
+        <div class="stats-container">
+            <div class="stat-card" onclick="toggleDetails(this)">
+                <div class="stat-header">
+                    <h3>Identity Labels</h3>
+                </div>
+                <div class="pie-chart-container">
+                    <div class="pie-chart" id="identityChart"></div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #0038a8;"></div>
+                        <span class="legend-label">Filipino/Filipino American</span>
+                        <span class="legend-percentage">61%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ce1126;"></div>
+                        <span class="legend-label">Asian/Asian American</span>
+                        <span class="legend-percentage">20%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffd700;"></div>
+                        <span class="legend-label">American</span>
+                        <span class="legend-percentage">13%</span>
+                    </div>
+                </div>
+                <div class="stat-details">
+                    <p class="source">Source: Pew Research Center (2022-2023)</p>
+                </div>
+            </div>
+
+            <div class="stat-card" onclick="toggleDetails(this)">
+                <div class="stat-header">
+                    <h3>Hiding Heritage</h3>
+                </div>
+                <div class="pie-chart-container">
+                    <div class="pie-chart" id="heritageChart"></div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ce1126;"></div>
+                        <span class="legend-label">Have Hidden Heritage</span>
+                        <span class="legend-percentage">16%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #0038a8;"></div>
+                        <span class="legend-label">Have Not Hidden Heritage</span>
+                        <span class="legend-percentage">84%</span>
+                    </div>
+                </div>
+                <div class="stat-details">
+                    <p>This might reflect discomfort or uncertainty about how much of their Filipino identity others expect them to show.</p>
+                    <p class="source">Source: Pew Research Center</p>
+                </div>
+            </div>
+
+            <div class="stat-card" onclick="toggleDetails(this)">
+                <div class="stat-header">
+                    <h3>Racial Classification</h3>
+                </div>
+                <div class="pie-chart-container">
+                    <div class="pie-chart" id="racialChart"></div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #0038a8;"></div>
+                        <span class="legend-label">Asian (specified Filipino)</span>
+                        <span class="legend-percentage">85.2%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ce1126;"></div>
+                        <span class="legend-label">Pacific Islander</span>
+                        <span class="legend-percentage">8.8%</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffd700;"></div>
+                        <span class="legend-label">Other</span>
+                        <span class="legend-percentage">6.1%</span>
+                    </div>
+                </div>
+                <div class="stat-details">
+                    <p class="source">Source: SpringerLink (California Health Interview Survey, 2019-2021)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Video Section 1 with Info -->
+    <section class="video-info-section">
+        <div class="video-content">
+            <h3>Are Filipino Americans Asian?</h3>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/lEmsdHw6trM?start=206&si=ScBtt0UBmi1q0orI" 
+                    title="Filipino American Identity Video" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="video-description">Watch this video to learn about how college students perceive Filipino Americans.</p>
+    </div>
+
+        <div class="info-content">
+<p class="info-paragraph">Many Filipino Americans identify as Pacific Islander, but what does that mean? Pacific Islanders are a diverse group of people from the islands of the Pacific Ocean. Three major subregions: Melanesia, Micronesia, and Polynesia. They are not all the same, but Philippines are not considered a Pacific Islander! Filipinos are actually considered Asian, which is a racial category to label those from south and east Asian countries, including the Philippines. But Asian is a broad word. You can either be Vietnamese, Japanese, or Korean.<br><br><em>Source: <a href="https://penbrothers.com/blog/are-filipinos-pacific-islanders/#:~:text=Pacific%20Islanders%20are%20defined%20as%20peoples%20of%20the,doesn%E2%80%99t%20fall%20into%20any%20of%20these%20three%20classifications." target="_blank" rel="noopener noreferrer">Penbrothers - Are Filipinos Pacific Islanders?</a></em></p>
+        </div>
+    </section>
+
+    <!-- Video Section 2 -->
+    <section class="video-section">
+    <h3>Are Filipino Americans real Asians?</h3>
+    <div class="video-container">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/kMl9idMoTGU?si=6arp3TCwBQW78RNH" 
+            title="Filipino Identity Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+        <p class="video-description">Watch this video to learn how Filipino Americans are perceived</p>
+    </section>
+
+    <!-- Reflection Section -->
+    <section class="reflection-section">
+        <div class="reflection-content">
+            <p class="info-paragraph">There are a lot of Filipino Americans in the United States today, and many feel like myself as the evidence shows. Being Filipino American does not make us less Filipino or American. We are both, a blend of both cultures. We may not be accepted by those born and raised in the Philippines. But to be a true Filipino, whether raised in the Philippines or in the United States, is to have a sense of togetherness, community, and love for each other. We can be more in touch with our roots in many different ways. One being mythology! You may have heard about Greek Mythology, but do you know about Filipino Mythology? Even if you aren't Filipino, you can learn more about the mythology of a different country and you can take the knowledge you learned and apply it your life.</p>
+        </div>
+    </section>
+
+
+    <!-- Mythology Section -->
+    <section class="mythology-section">
+        <div class="mythology-header">
+            <h1>Filipino Mythology</h1>
+            <p>Learn about the myths of the Philippines!</p>
+</div>
+
+    <div class="controls">
+        <input type="text" class="search-box" placeholder="Search mythology..." id="searchInput">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="deity">Deities</button>
+            <button class="filter-btn" data-filter="creature">Creatures</button>
+            <button class="filter-btn" data-filter="hero">Heroes</button>
+            <button class="filter-btn" data-filter="spirit">Spirits</button>
+        </div>
+    </div>
+
+    <div class="stats" id="stats">
+        Showing all entries
+    </div>
+
+    <div class="mythology-grid" id="mythologyGrid">
+        <!-- Mythology entries will be populated by JavaScript -->
+    </div>
+
+    <div class="navigation">
+        <a href="index.html" class="nav-btn">← Back to Home</a>
+    </div>
+
+    <script>
+        // Basic interactive functionality
+        const mythologyData = [
+            {id: 1, name: "Bathala", category: "deity", description: "The supreme god and creator of the universe in Tagalog mythology.", image: "https://i.postimg.cc/yx0NFwJk/bachzim-bathala-2.jpg", details: {origin: "Tagalog Mythology", powers: ["Creation", "Supreme Authority", "Weather Control", "Life and Death"], symbols: ["Sun", "Sky", "Thunder"], stories: "Bathala is considered the most powerful deity, creator of the first man and woman, and ruler of the sky world."}},
+            {id: 2, name: "Mayari", category: "deity", description: "The goddess of the moon and one of the three daughters of Bathala.", image: "https://i.postimg.cc/3w2bQ1Dk/Mythlok-Mayari-1024x576.jpg", details: {origin: "Tagalog Mythology", powers: ["Moon Control", "Night Vision", "Tides", "Fertility"], symbols: ["Moon", "Silver", "Night"], stories: "Mayari lost one eye in a battle with her brother Apolaki, making her the one-eyed goddess of the moon."}},
+            {id: 3, name: "Apolaki", category: "deity", description: "The god of the sun and war, brother of Mayari.", image: "https://i.postimg.cc/CM6WqD2K/f4da454ea0558299b2acc0af4dbc5bf6.jpg", details: {origin: "Tagalog Mythology", powers: ["Sun Control", "War", "Strength", "Leadership"], symbols: ["Sun", "Gold", "Fire"], stories: "Apolaki is the god of the sun and patron of warriors, known for his strength and courage in battle."}},
+            {id: 4, name: "Tala", category: "deity", description: "The goddess of stars and navigation, daughter of Bathala.", image: "https://i.postimg.cc/C5mDRS7f/OIP.webp", details: {origin: "Tagalog Mythology", powers: ["Star Control", "Navigation", "Guidance", "Hope"], symbols: ["Stars", "Compass", "Light"], stories: "Tala guides travelers and sailors, providing light in the darkness and hope in times of need."}},
+            {id: 5, name: "Aswang", category: "creature", description: "A shapeshifting vampire-like creature that preys on humans.", image: "https://i.postimg.cc/MpHSwCWb/terrifying-transformations-of-aswang.jpg", details: {origin: "Visayan Mythology", powers: ["Shapeshifting", "Superhuman Strength", "Night Vision", "Regeneration"], symbols: ["Bat", "Pig", "Darkness"], stories: "Aswang can transform into animals, especially pigs and bats, and are known to eat human flesh and organs."}},
+            {id: 6, name: "Kapre", category: "creature", description: "A giant tree-dwelling creature that smokes tobacco and plays tricks on people.", image: "https://i.postimg.cc/QVZLWZdP/R.jpg", details: {origin: "Tagalog Mythology", powers: ["Size Manipulation", "Invisibility", "Smoke Control", "Tree Communication"], symbols: ["Tree", "Tobacco", "Smoke"], stories: "Kapre are tall, dark-skinned giants who live in large trees and are often seen smoking cigars."}},
+            {id: 7, name: "Tikbalang", category: "creature", description: "A half-human, half-horse creature that leads travelers astray.", image: "https://i.postimg.cc/x82DXS81/cd786e01d361f9cc7849ca618094c11a.jpg", details: {origin: "Tagalog Mythology", powers: ["Illusion", "Speed", "Nature Control", "Misleading"], symbols: ["Horse", "Forest", "Mist"], stories: "Tikbalang are tricksters who make people get lost in the forest by making them walk in circles."}},
+            {id: 8, name: "Manananggal", category: "creature", description: "A vampire-like creature that can separate its upper body from its lower half.", image: "https://i.postimg.cc/Gpy5GSZs/image.png", details: {origin: "Visayan Mythology", powers: ["Body Separation", "Flight", "Superhuman Strength", "Night Vision"], symbols: ["Wings", "Darkness", "Blood"], stories: "Manananggal can detach its upper body and fly using bat-like wings to hunt for pregnant women."}},
+            {id: 9, name: "Lam-ang", category: "hero", description: "The legendary hero of the Ilocano epic who possessed extraordinary abilities.", image: "https://i.postimg.cc/RhD7Pvtq/Biag-ni-Lam-ang-5-1024x585.webp", details: {origin: "Ilocano Epic", powers: ["Superhuman Strength", "Magic", "Animal Communication", "Immortality"], symbols: ["Cock", "Dog", "Magic"], stories: "Lam-ang was born talking, could fight at age nine months, and had a magical rooster and dog as companions."}},
+            {id: 10, name: "Bernardo Carpio", category: "hero", description: "A legendary strongman who holds up two mountains to prevent them from colliding.", image: "https://i.postimg.cc/1Xnn3wg1/neil-ryan-agnes-bernardo-01.jpg", details: {origin: "Tagalog Legend", powers: ["Superhuman Strength", "Earth Control", "Mountain Moving", "Endurance"], symbols: ["Mountains", "Chains", "Strength"], stories: "Bernardo Carpio is said to be holding up two mountains with his bare hands to prevent earthquakes."}},
+            {id: 11, name: "Diwata", category: "spirit", description: "Nature spirits or fairies that protect forests, mountains, and natural places.", image: "https://i.postimg.cc/Pr6rN2sh/R.jpg", details: {origin: "Various Philippine Cultures", powers: ["Nature Control", "Healing", "Protection", "Beauty"], symbols: ["Flowers", "Trees", "Waterfalls"], stories: "Diwata are benevolent spirits who protect nature and can grant blessings to those who respect the environment."}},
+            {id: 12, name: "Engkanto", category: "spirit", description: "Enchanting spirits that can appear as beautiful humans to lure people.", image: "https://i.postimg.cc/Bbnf0fvS/Mythlok-Engatko-illustration.jpg", details: {origin: "Visayan Mythology", powers: ["Enchantment", "Illusion", "Beauty", "Seduction"], symbols: ["Beauty", "Flowers", "Perfume"], stories: "Engkanto are beautiful spirits who can enchant humans and sometimes take them to their magical realms."}},
+            {id: 13, name: "Sirena", category: "creature", description: "Mermaid-like creatures that live in the sea and can control water.", image: "https://i.postimg.cc/Vvr4MKGV/sirena.jpg", details: {origin: "Various Philippine Cultures", powers: ["Water Control", "Swimming", "Enchantment", "Weather Control"], symbols: ["Sea", "Pearls", "Waves"], stories: "Sirena are beautiful sea creatures who can control the ocean and sometimes rescue drowning sailors."}},
+            {id: 14, name: "Bakunawa", category: "creature", description: "A giant sea serpent that causes eclipses by swallowing the moon.", image: "https://i.postimg.cc/NjgJCk5B/fde4856d901b0cd0d427dfa7a0d6fbe0.png", details: {origin: "Visayan Mythology", powers: ["Size Manipulation", "Eclipse Control", "Sea Control", "Moon Devouring"], symbols: ["Serpent", "Moon", "Sea"], stories: "Bakunawa is a dragon-like serpent that causes lunar eclipses by trying to swallow the moon."}},
+            {id: 15, name: "Maria Makiling", category: "spirit", description: "A mountain goddess who protects Mount Makiling and its surrounding areas.", image: "https://i.postimg.cc/vZJ1H3fm/tumblr-d00cac0d0d9ee9ebe9a6741a929b0a05-46e5dea2-1280.png", details: {origin: "Tagalog Mythology", powers: ["Mountain Control", "Healing", "Protection", "Nature Blessing"], symbols: ["Mountain", "Flowers", "Springs"], stories: "Maria Makiling is a beautiful mountain goddess who protects the forests and helps those who are lost."}},
+            {id: 16, name: "Malakas at Maganda", category: "hero", description: "The first man and woman in Philippine mythology, created by Bathala.", image: "https://i.postimg.cc/mZnTsh7v/MARCOS-MALAKAS-MAGANDA-COVER-SEPT2018.jpg", details: {origin: "Tagalog Mythology", powers: ["First Humans", "Creation", "Fertility", "Humanity"], symbols: ["Bamboo", "Humanity", "Life"], stories: "Malakas (Strong) and Maganda (Beautiful) emerged from a bamboo stalk and became the first humans."}}
+        ];
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+
+        function init() {
+            animatePopulation();
+            renderMythology();
+            setupEventListeners();
+            updateStats();
+            setupPieChartInteractions();
+        }
+
+        function animatePopulation() {
+            const totalElement = document.getElementById('totalPopulation');
+            if (totalElement) {
+                animateNumber(totalElement, 0, 4200000, 2000);
+            }
+        }
+
+        function animateNumber(element, start, end, duration) {
+            const startTime = performance.now();
+            const updateNumber = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                element.textContent = current.toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            };
+            requestAnimationFrame(updateNumber);
+        }
+
+
+        function renderMythology() {
+            const grid = document.getElementById('mythologyGrid');
+            if (!grid) return;
+            const filteredData = getFilteredData();
+            grid.innerHTML = '';
+            filteredData.forEach(item => {
+                const card = createMythologyCard(item);
+                grid.appendChild(card);
+            });
+        }
+
+        function createMythologyCard(item) {
+            const card = document.createElement('div');
+            card.className = 'mythology-card';
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-title">${item.name}</div>
+                    <div class="card-category">${item.category}</div>
+                </div>
+                <div class="card-image"><img src="${item.image}" alt="${item.name}" /></div>
+                <div class="card-description">${item.description}</div>
+                <div class="card-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Origin:</span> ${item.details.origin}
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Powers:</span>
+                        <div class="powers-list">
+                            ${item.details.powers.map(power => `<span class="power-tag">${power}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Symbols:</span> ${item.details.symbols.join(', ')}
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stories:</span> ${item.details.stories}
+                    </div>
+                </div>
+            `;
+            card.addEventListener('click', function() {
+                const details = this.querySelector('.card-details');
+                details.classList.toggle('show');
+            });
+            return card;
+        }
+
+        function getFilteredData() {
+            let filtered = mythologyData;
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(item => item.category === currentFilter);
+            }
+            if (searchTerm) {
+                filtered = filtered.filter(item => 
+                    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.details.origin.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.details.powers.some(power => power.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
+            }
+            return filtered;
+        }
+
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                searchTerm = this.value;
+                renderMythology();
+                updateStats();
+            });
+            }
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    renderMythology();
+                    updateStats();
+                });
+            });
+        }
+
+        function setupPieChartInteractions() {
+            const pieCharts = document.querySelectorAll('.pie-chart');
+            const pieChartWrappers = document.querySelectorAll('.pie-chart-wrapper');
+            
+            // Add click interactions to pie charts
+            pieChartWrappers.forEach((wrapper, index) => {
+                const pieChart = wrapper.querySelector('.pie-chart');
+                const legendItems = wrapper.querySelectorAll('.legend-item');
+                
+                // Click effect on wrapper
+                wrapper.addEventListener('click', function() {
+                    // Add click animation
+                    this.classList.add('clicked');
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 600);
+                    
+                    // Toggle active state on pie chart
+                    pieCharts.forEach(pc => pc.classList.remove('active'));
+                    pieChart.classList.add('active');
+                    
+                    // Show tooltip with chart info
+                    showPieChartTooltip(wrapper, index);
+                });
+                
+                // Hover effects for legend items
+                legendItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        // Highlight corresponding segment in pie chart
+                        pieChart.style.filter = 'brightness(1.3)';
+                    });
+                    
+                    item.addEventListener('mouseleave', function() {
+                        pieChart.style.filter = 'brightness(1)';
+                    });
+                    
+                    // Click effect on legend items
+                    item.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent wrapper click
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    });
+                });
+            });
+            
+            // Add tooltip creation
+            function showPieChartTooltip(wrapper, chartIndex) {
+                const chartTitles = [
+                    'Identity Labels',
+                    'Hiding Heritage', 
+                    'Racial Classification'
+                ];
+                
+                const chartDescriptions = [
+                    'How Filipino Americans identify themselves culturally and ethnically',
+                    'Percentage who have hidden or downplayed their Filipino heritage',
+                    'How Filipino Americans are classified in racial categories'
+                ];
+                
+                // Remove existing tooltip
+                const existingTooltip = document.querySelector('.pie-tooltip');
+                if (existingTooltip) {
+                    existingTooltip.remove();
+                }
+                
+                // Create new tooltip
+                const tooltip = document.createElement('div');
+                tooltip.className = 'pie-tooltip';
+                tooltip.innerHTML = `
+                    <strong>${chartTitles[chartIndex]}</strong><br>
+                    ${chartDescriptions[chartIndex]}
+                `;
+                
+                // Position tooltip
+                const rect = wrapper.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width/2 - 100}px`;
+                tooltip.style.top = `${rect.top - 60}px`;
+                
+                document.body.appendChild(tooltip);
+                
+                // Show tooltip with animation
+                setTimeout(() => {
+                    tooltip.classList.add('show');
+                }, 10);
+                
+                // Hide tooltip after 3 seconds
+                setTimeout(() => {
+                    tooltip.classList.remove('show');
+                    setTimeout(() => {
+                        tooltip.remove();
+                    }, 300);
+                }, 3000);
+            }
+        }
+
+        function updateStats() {
+            const stats = document.getElementById('stats');
+            if (!stats) return;
+            const filteredData = getFilteredData();
+            const total = mythologyData.length;
+            const showing = filteredData.length;
+            if (currentFilter === 'all' && !searchTerm) {
+                stats.textContent = `Showing all ${total} entries`;
+            } else {
+                stats.textContent = `Showing ${showing} of ${total} entries`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
