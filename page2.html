@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        body {
+            background-image: url('https://i.postimg.cc/ZC0WCq49/Untitled-Artwork-1.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            min-width: 100vw;
+            font-family: Arial, sans-serif;
+            image-rendering: auto;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+        
+        #firstImage {
+            position: fixed;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        #firstHeading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 4em;
+            z-index: 1001;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19 {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 4.5em;
+            pointer-events: none;
+        }
+        
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        #followingContent {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #followingContent img {
+            max-width: 450px;
+            max-height: 450px;
+            margin: 10px;
+            display: block;
+            pointer-events: none;
+        }
+        
+        /* Style for the new images that don't have the hidden class initially */
+        #followingContent img:not(.hidden) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+    </style>
+</head>
+<body>
+   
+<img id="firstImage" src="https://i.postimg.cc/RV5HkGSc/R.gif">
+
+    <h1 id="firstHeading" class="hidden"> Where are you from?</h1>
+    <div id="followingContent">
+        <h2 class="hidden"> Where are you really from?</h2>
+        <img src="https://i.postimg.cc/MH3DzQdC/tenor.gif" class="hidden">
+        <h3 class="hidden"> Oh you're a tropical asian.</h3>
+        <img src="https://i.postimg.cc/ZRBfnHFh/v-YBGIUi4-KA4py.webp">
+        <h4 class="hidden"> You look Filipino.</h4>
+        <img src="https://i.postimg.cc/wvs01hVp/lumpia-yum.gif" class="hidden">
+        <h5 class="hidden"> You don't look like one</h5>
+        <h6 class="hidden"> Do you speak Filipino?</h6>
+        <img src="https://i.postimg.cc/jjYmGGzJ/tenor.gif">
+        <h7 class="hidden"> You have great English!</h7>
+        <img src="https://i.postimg.cc/WzY3xJBd/1.gif" class="hidden">
+        <h8 class="hidden"> Why don't you speak your own language?</h8>
+        <h9 class="hidden"> You're so white washed.</h9>
+        <img src="https://i.postimg.cc/QNQFjF3K/giphy.gif" class="hidden">
+        <h10 class="hidden"> What are you eating? Disgusting.</h10>
+        <img src="https://i.postimg.cc/CKDHM5Tx/150910065624-01-trump-0910.jpg" class="hidden">
+        <h11 class="hidden"> Let me guess, you're a nurse?</h11>
+        <img src="https://i.postimg.cc/5yXPYgY4/tenor.gif" class="hidden">
+        <h12 class="hidden"> All Filipinos are short like you.</h12>
+        <img src="https://i.postimg.cc/vm535DZn/giphy.gif" class="hidden">
+        <h13 class="hidden"> You aren't a real Filipino, you were born here.</h13>
+        <img src="https://i.postimg.cc/5t8XjyCr/tumblr-inline-pa6u2pf-VLA1r6rsd7-500.gif" class="hidden">
+        <h14 class="hidden"> You're not patriotic enough to be American.</h14>
+        <img src="https://i.postimg.cc/wTv1mrRJ/giphy.gif">
+        <h15 class="hidden"> Your skin is not pretty in the Philippines.</h15>
+        <img src="https://i.postimg.cc/SNDKQfZs/Remove-the-mask.gif">
+        <img src="https://i.postimg.cc/wjFHQxKj/giphy.gif">
+        <h16 class="hidden"> Omg you're Filipino? I love lumpia!</h16>
+        <img src="https://i.postimg.cc/vTZhRzL7/tenor.gif" class="hidden">
+        <h17 class="hidden"> Be more patriotic.</h17>
+        <img src="https://i.postimg.cc/L85xSm8J/rodrigo-duterte-gettyimages-597604936-wide-eec45bd13ea373239595bfbe2e42c1d141d3398f-s1400-c100.jpg" class="hidden">
+        <h18 class="hidden"> You have a funny accent.</h18>
+        <img src="https://i.postimg.cc/vZCdnq1Z/S441b2dec9e084943935c814fcf2cad2b-G-jpg-720x720q80.jpg" class="hidden">
+        <h19 class="hidden"> Your Tagalog is so broken.</h19>
+        <img src="https://i.postimg.cc/5y9tr7SM/pp.jpg" class="hidden">
+    </div>
+
+<script>
+let isFirstClick = false;
+let mouseX = 0;
+let mouseY = 0;
+let currentElementIndex = 0;
+let lastRevealTime = 0;
+const revealDelay = 500; // 500ms delay between reveals
+
+// Get all elements that should be revealed sequentially
+const elementsToReveal = [
+    'h2', 'img[src*="MH3DzQdC"]', 'h3', 'img[src*="ZRBfnHFh"]', 'h4', 'img[src*="lumpia-yum"]', 
+    'h5', 'h6', 'img[src*="jjYmGGzJ"]', 'h7', 'img[src*="WzY3xJBd"]', 'h8', 'h9', 'img[src*="QNQFjF3K"]', 
+    'h10', 'img[src*="CKDHM5Tx"]', 'h11', 'img[src*="5yXPYgY4"]', 'h12', 'img[src*="vm535DZn"]', 
+    'h13', 'img[src*="5t8XjyCr"]', 'h14', 'img[src*="wTv1mrRJ"]', 'h15', 'img[src*="SNDKQfZs"]', 'img[src*="wjFHQxKj"]', 'h16', 'img[src*="vTZhRzL7"]', 'h17', 'img[src*="L85xSm8J"]', 'h18', 'img[src*="vZCdnq1Z"]', 'h19', 'img[src*="5y9tr7SM"]'
+];
+
+// Handle first image click
+document.getElementById('firstImage').addEventListener('click', function() {
+    console.log('First image clicked');
+    if (!isFirstClick) {
+        // Show h1
+        document.getElementById('firstHeading').classList.remove('hidden');
+        // Make first image vanish
+        document.getElementById('firstImage').style.opacity = '0';
+        document.getElementById('firstImage').style.visibility = 'hidden';
+        isFirstClick = true;
+        console.log('First click completed, h1 should be visible');
+    }
+});
+
+// Handle mouse movement
+document.addEventListener('mousemove', function(e) {
+    if (isFirstClick) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Check if enough time has passed since last reveal
+        const currentTime = Date.now();
+        if (currentTime - lastRevealTime >= revealDelay && currentElementIndex < elementsToReveal.length) {
+            console.log('Mouse moved, attempting to reveal element', currentElementIndex);
+            revealNextElement();
+            lastRevealTime = currentTime;
+        }
+    }
+});
+
+function revealNextElement() {
+    if (currentElementIndex < elementsToReveal.length) {
+        const selector = elementsToReveal[currentElementIndex];
+        console.log('Looking for element with selector:', selector);
+        const element = document.querySelector(selector);
+        
+        if (element) {
+            console.log('Found element:', element);
+            // Position the element at current mouse position
+            element.style.position = 'fixed';
+            element.style.left = mouseX + 'px';
+            element.style.top = mouseY + 'px';
+            element.style.zIndex = 1000 - currentElementIndex; // Stack elements
+            element.style.opacity = '0';
+            element.style.visibility = 'visible';
+            element.style.transition = 'opacity 0.5s ease-in-out';
+            
+            // Remove from hidden class and show
+            element.classList.remove('hidden');
+            
+            // Trigger opacity change
+            setTimeout(() => {
+                element.style.opacity = '1.0';
+            }, 10);
+            
+            currentElementIndex++;
+            console.log('Revealed element', currentElementIndex - 1, 'of', elementsToReveal.length);
+
+            // If that was the last element, redirect immediately
+            if (currentElementIndex === elementsToReveal.length) {
+                console.log('All elements have been revealed');
+                setTimeout(() => {
+                    window.location.href = 'page3.html';
+                }, 3000);
+            }
+        } else {
+            console.log('Element not found with selector:', selector);
+        }
+    }
+}
+</script>
+
+</body>
+</html>

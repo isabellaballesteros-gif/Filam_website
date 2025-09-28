@@ -1,0 +1,10 @@
+# Completely disable Jekyll
+theme: null
+plugins: []
+markdown: kramdown
+highlighter: rouge
+safe: true
+exclude:
+  - README.md
+  - .gitignore
+  - .github/

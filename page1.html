@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://i.postimg.cc/HnrM12S5/IMG-5157.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p1 {
+            position: absolute;
+            top: 20%;
+            right: 20px;
+            font-size: 24px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 400px;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        p2 {
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-50%);
+            font-size: 24px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 400px;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        p3 {
+            position: absolute;
+            bottom: 30%;
+            right: 90px;
+            font-size: 24px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 400px;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        h2 {
+            position: absolute;
+            top: 200px;
+            right: 200px;
+            font-size: 50px;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 500px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .gif-image {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        .floating-image {
+            position: absolute;
+            top: 15%;
+            left: 45%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+            z-index: 10;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-height: 600px) {
+            p1, p2, p3 {
+                font-size: 20px;
+                line-height: 1.3;
+            }
+            h2 {
+                font-size: 30px;
+                line-height: 1.2;
+            }
+            .floating-image {
+                width: 100px;
+                height: 100px;
+            }
+            .gif-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-height: 500px) {
+            p1, p2, p3 {
+                font-size: 18px;
+                line-height: 1.2;
+                max-width: 350px;
+            }
+            h2 {
+                font-size: 26px;
+                line-height: 1.1;
+            }
+            .floating-image {
+                width: 80px;
+                height: 80px;
+            }
+            .gif-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p1> I feel ligalig for who I am. Behind proudness is uncertainty of identity. My parents were raised in the Philippines, immigrated to the United States. Myself, born and raised in the United States. A land with opposite culture and morals. A land of freedom but divided. Force fed to speak English and study American way of life. But I don't feel American. I don't feel Filipino either.</p1>
+    <p2> I feel ligalig for my mother tongue being lost. Dances, traditions, and stories fading away with me. The culture of my ancestors in the islands meaning nothing now that being born here caused me to be foreign to my own origin.</p2>
+    <p3> I feel ligalig that I feel out of place in the land I was born in. That I would trade my "ethnic" food for what everyone else had. That I wanted to be something else. To be laughed at for my skin, my eyes, my height.</p3>
+    <h2> With this I ask, am I a real Filipino? Am I a real American?</h2>
+    <img src="https://i.postimg.cc/26qgtqp6/Untitled-Artwork.png" alt="Floating artwork" class="floating-image" onclick="fadeInText()">
+    <img src="https://i.postimg.cc/d1LbhJYz/81f65bff8563907a8a673c6306fd83a2.gif" alt="Animated GIF" class="gif-image" onclick="goToPage2()">
+
+<script>
+    let clickCount = 0;
+
+    function fadeInText() {
+        const p1 = document.querySelector('p1');
+        const p2 = document.querySelector('p2');
+        const p3 = document.querySelector('p3');
+        const h2 = document.querySelector('h2');
+        const gif = document.querySelector('.gif-image');
+        
+        clickCount++;
+        
+        if (clickCount === 1) {
+            // First click: show p1
+            p1.style.opacity = '1';
+            p2.style.opacity = '0';
+            p3.style.opacity = '0';
+            h2.style.opacity = '0';
+            gif.style.opacity = '0';
+        } else if (clickCount === 2) {
+            // Second click: hide p1, show p2
+            p1.style.opacity = '0';
+            p2.style.opacity = '1';
+            p3.style.opacity = '0';
+            h2.style.opacity = '0';
+            gif.style.opacity = '0';
+        } else if (clickCount === 3) {
+            // Third click: hide p2, show p3
+            p1.style.opacity = '0';
+            p2.style.opacity = '0';
+            p3.style.opacity = '1';
+            h2.style.opacity = '0';
+            gif.style.opacity = '0';
+        } else if (clickCount === 4) {
+            // Fourth click: hide p3, show h2
+            p1.style.opacity = '0';
+            p2.style.opacity = '0';
+            p3.style.opacity = '0';
+            h2.style.opacity = '1';
+            gif.style.opacity = '0';
+        } else if (clickCount === 5) {
+            // Fifth click: hide h2, show gif
+            p1.style.opacity = '0';
+            p2.style.opacity = '0';
+            p3.style.opacity = '0';
+            h2.style.opacity = '0';
+            gif.style.opacity = '1';
+        } else if (clickCount === 6) {
+            // Sixth click: hide everything
+            p1.style.opacity = '0';
+            p2.style.opacity = '0';
+            p3.style.opacity = '0';
+            h2.style.opacity = '0';
+            gif.style.opacity = '0';
+            clickCount = 0; // Reset for next cycle
+        }
+    }
+
+    function goToPage2() {
+        window.location.href = 'page2.html';
+    }
+</script>
+</body>
+</html>
