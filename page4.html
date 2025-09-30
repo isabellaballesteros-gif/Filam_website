@@ -272,10 +272,10 @@
             margin: 20px auto;
             position: relative;
             background: conic-gradient(
-                #0038a8 0deg 144deg,
-                #ce1126 144deg 216deg,
-                #ffd700 216deg 252deg,
-                #00ff88 252deg 360deg
+                #0038a8 0deg 219.6deg,
+                #ce1126 219.6deg 291.6deg,
+                #ffd700 291.6deg 338.4deg,
+                #8e44ad 338.4deg 360deg
             );
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
@@ -398,28 +398,25 @@
         /* Specific pie chart variations */
         .identity-pie-chart {
             background: conic-gradient(
-                #0038a8 0deg 126deg,
-                #ce1126 126deg 234deg,
-                #ffd700 234deg 288deg,
-                #00ff88 288deg 360deg
+                #0038a8 0deg 219.6deg,
+                #ce1126 219.6deg 291.6deg,
+                #ffd700 291.6deg 338.4deg,
+                #8e44ad 338.4deg 360deg
             );
         }
         
         .heritage-pie-chart {
             background: conic-gradient(
-                #ff6b6b 0deg 108deg,
-                #4ecdc4 108deg 216deg,
-                #45b7d1 216deg 288deg,
-                #96ceb4 288deg 360deg
+                #ce1126 0deg 57.6deg,
+                #0038a8 57.6deg 360deg
             );
         }
         
         .racial-pie-chart {
             background: conic-gradient(
-                #8e44ad 0deg 90deg,
-                #3498db 90deg 180deg,
-                #e74c3c 180deg 270deg,
-                #f39c12 270deg 360deg
+                #0038a8 0deg 306.72deg,
+                #ce1126 306.72deg 338.4deg,
+                #6c5ce7 338.4deg 360deg
             );
         }
         
@@ -703,6 +700,353 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
+        /* Enhanced Visual Effects */
+        .stat-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+        
+        .mythology-card {
+            transition: all 0.3s ease;
+        }
+        
+        .mythology-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .population-card {
+            transition: all 0.3s ease;
+        }
+        
+        .population-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15);
+        }
+        
+        .pie-chart {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .pie-chart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .nav-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+        
+        .search-box {
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Gentle scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced pie chart interactions */
+        .legend-item {
+            transition: all 0.3s ease;
+        }
+        
+        .legend-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 8px 12px;
+        }
+        
+        /* Smooth number counting animation */
+        .count-up {
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Gentle pulse for active elements */
+        .pulse {
+            animation: gentlePulse 2s infinite;
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Voting Section Styles */
+        .voting-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .voting-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: #ffd700;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .voting-header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .voting-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .voting-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .voting-option {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .voting-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+            border-color: #ffd700;
+        }
+
+        .voting-option.selected {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .voting-option img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .voting-option h4 {
+            font-size: 1em;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
+
+        .voting-option p {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .vote-button {
+            background: linear-gradient(45deg, #0038a8, #ce1126);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .vote-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .vote-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .voting-results {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .voting-results h3 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #ffd700;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .result-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+
+        .result-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0038a8, #ce1126);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .result-count {
+            color: #ffd700;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .total-votes {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #ffd700;
+        }
+
+        .voting-message {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffd700;
+            display: none;
+        }
+
+        .voting-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .voting-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .voting-options {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                max-height: 500px;
+            }
+            
+            .voting-option {
+                padding: 12px;
+            }
+            
+            .voting-option img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .voting-option h4 {
+                font-size: 0.9em;
+            }
+            
+            .voting-option p {
+                font-size: 0.75em;
+            }
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .population-container {
@@ -857,7 +1201,7 @@
                     <h3>Identity Labels</h3>
                 </div>
                 <div class="pie-chart-container">
-                    <div class="pie-chart" id="identityChart"></div>
+                    <div class="pie-chart identity-pie-chart" id="identityChart"></div>
                 </div>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -875,6 +1219,11 @@
                         <span class="legend-label">American</span>
                         <span class="legend-percentage">13%</span>
                     </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #8e44ad;"></div>
+                        <span class="legend-label">Other/Mixed</span>
+                        <span class="legend-percentage">6%</span>
+                    </div>
                 </div>
                 <div class="stat-details">
                     <p class="source">Source: Pew Research Center (2022-2023)</p>
@@ -886,7 +1235,7 @@
                     <h3>Hiding Heritage</h3>
                 </div>
                 <div class="pie-chart-container">
-                    <div class="pie-chart" id="heritageChart"></div>
+                    <div class="pie-chart heritage-pie-chart" id="heritageChart"></div>
                 </div>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -911,7 +1260,7 @@
                     <h3>Racial Classification</h3>
                 </div>
                 <div class="pie-chart-container">
-                    <div class="pie-chart" id="racialChart"></div>
+                    <div class="pie-chart racial-pie-chart" id="racialChart"></div>
                 </div>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -925,7 +1274,7 @@
                         <span class="legend-percentage">8.8%</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #ffd700;"></div>
+                        <div class="legend-color" style="background: #6c5ce7;"></div>
                         <span class="legend-label">Other</span>
                         <span class="legend-percentage">6.1%</span>
                     </div>
@@ -1010,6 +1359,37 @@
     <div class="mythology-grid" id="mythologyGrid">
         <!-- Mythology entries will be populated by JavaScript -->
     </div>
+
+    <!-- Voting Section -->
+    <section class="voting-section">
+        <div class="voting-header">
+            <h2>Choose Your Favorite Mythological Creature</h2>
+            <p> Vote for your favorite mythological creature and it will be displayed!</p>
+        </div>
+        
+        <div class="voting-container">
+            <div class="voting-options" id="votingOptions">
+                <!-- Voting options will be populated by JavaScript -->
+            </div>
+            
+            <div class="voting-results" id="votingResults">
+                <h3>Current Results</h3>
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                <button onclick="resetVoting()" style="
+                    background: rgba(255, 0, 0, 0.2);
+                    color: #ff6b6b;
+                    border: 1px solid #ff6b6b;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    font-size: 0.9em;
+                ">Reset My Vote</button>
+            </div>
+        </div>
+    </section>
 
     <div class="navigation">
         <a href="index.html" class="nav-btn">← Back to Home</a>
@@ -1263,7 +1643,291 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', init);
+        // Enhanced visual and interactive features
+        function addScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Add fade-in class to elements and observe them
+            document.querySelectorAll('.stat-card, .mythology-card, .population-card').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+        }
+
+        function enhancePieChartInteractions() {
+            const pieCharts = document.querySelectorAll('.pie-chart');
+            
+            pieCharts.forEach(chart => {
+                chart.addEventListener('mouseenter', function() {
+                    this.style.filter = 'brightness(1.1)';
+                });
+                
+                chart.addEventListener('mouseleave', function() {
+                    this.style.filter = 'brightness(1)';
+                });
+            });
+        }
+
+        function addSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        function enhanceMythologyCards() {
+            const cards = document.querySelectorAll('.mythology-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        function addClickEffects() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.stat-card, .mythology-card, .pie-chart')) {
+                    const element = e.target.closest('.stat-card, .mythology-card, .pie-chart');
+                    element.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        element.style.transform = '';
+                    }, 150);
+                }
+            });
+        }
+
+        function enhanceSearchAndFilters() {
+            const searchBox = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            if (searchBox) {
+                searchBox.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                
+                searchBox.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Add a subtle pulse effect
+                    this.classList.add('pulse');
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 2000);
+                });
+            });
+        }
+
+        function addNumberCountingAnimation() {
+            const populationNumber = document.getElementById('totalPopulation');
+            if (populationNumber) {
+                populationNumber.classList.add('count-up');
+            }
+        }
+
+        function addGentleParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const heroSection = document.querySelector('.hero-section');
+                
+                if (heroSection) {
+                    const speed = 0.3;
+                    heroSection.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        }
+
+        // Voting System
+        let votingData = {};
+        let hasVoted = false;
+
+        function initializeVoting() {
+            // Load existing votes from localStorage
+            const savedVotes = localStorage.getItem('mythologyVotes');
+            if (savedVotes) {
+                votingData = JSON.parse(savedVotes);
+            }
+
+            // Check if user has already voted
+            const userVoted = localStorage.getItem('userVoted');
+            if (userVoted === 'true') {
+                hasVoted = true;
+            }
+
+            renderVotingOptions();
+            renderVotingResults();
+        }
+
+        function renderVotingOptions() {
+            const votingOptions = document.getElementById('votingOptions');
+            if (!votingOptions) return;
+
+            // Use all creatures for voting
+            const votingCreatures = mythologyData;
+            
+            votingOptions.innerHTML = votingCreatures.map(creature => `
+                <div class="voting-option" data-id="${creature.id}">
+                    <img src="${creature.image}" alt="${creature.name}" />
+                    <h4>${creature.name}</h4>
+                    <p>${creature.description}</p>
+                    <button class="vote-button" ${hasVoted ? 'disabled' : ''} onclick="voteForCreature(${creature.id})">
+                        ${hasVoted ? 'Already Voted' : 'Vote'}
+                    </button>
+                </div>
+            `).join('');
+
+            // Add click handlers for selection
+            if (!hasVoted) {
+                document.querySelectorAll('.voting-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        if (!hasVoted) {
+                            // Remove previous selection
+                            document.querySelectorAll('.voting-option').forEach(opt => opt.classList.remove('selected'));
+                            // Add selection to clicked option
+                            this.classList.add('selected');
+                        }
+                    });
+                });
+            }
+        }
+
+        function voteForCreature(creatureId) {
+            // Check if user has a previous vote to remove
+            const previousVote = localStorage.getItem('userPreviousVote');
+            if (previousVote && votingData[previousVote] && votingData[previousVote] > 0) {
+                votingData[previousVote]--;
+            }
+
+            // Add new vote to data
+            if (!votingData[creatureId]) {
+                votingData[creatureId] = 0;
+            }
+            votingData[creatureId]++;
+
+            // Save to localStorage
+            localStorage.setItem('mythologyVotes', JSON.stringify(votingData));
+            localStorage.setItem('userVoted', 'true');
+            localStorage.setItem('userPreviousVote', creatureId);
+            
+            hasVoted = true;
+
+            // Update UI
+            renderVotingOptions();
+            renderVotingResults();
+            showVotingMessage();
+        }
+
+        function renderVotingResults() {
+            const resultsContainer = document.getElementById('resultsContainer');
+            if (!resultsContainer) return;
+
+            const totalVotes = Object.values(votingData).reduce((sum, count) => sum + count, 0);
+            
+            if (totalVotes === 0) {
+                resultsContainer.innerHTML = '<p style="text-align: center; opacity: 0.7;">No votes yet. Be the first to vote!</p>';
+                return;
+            }
+
+            // Get all creatures that have votes
+            const creaturesWithVotes = mythologyData.filter(creature => votingData[creature.id]);
+            
+            // Sort by vote count
+            creaturesWithVotes.sort((a, b) => (votingData[b.id] || 0) - (votingData[a.id] || 0));
+
+            resultsContainer.innerHTML = creaturesWithVotes.map(creature => {
+                const votes = votingData[creature.id] || 0;
+                const percentage = totalVotes > 0 ? (votes / totalVotes) * 100 : 0;
+                
+                return `
+                    <div class="result-item">
+                        <div class="result-name">${creature.name}</div>
+                        <div class="result-bar">
+                            <div class="result-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="result-count">${votes}</div>
+                    </div>
+                `;
+            }).join('') + `
+                <div class="total-votes">Total Votes: ${totalVotes}</div>
+            `;
+        }
+
+        function showVotingMessage() {
+            const message = document.createElement('div');
+            message.className = 'voting-message show';
+            message.innerHTML = 'Thank you for voting! Your vote has been recorded.';
+            
+            const votingSection = document.querySelector('.voting-section');
+            if (votingSection) {
+                votingSection.insertBefore(message, votingSection.querySelector('.voting-container'));
+                
+                // Remove message after 3 seconds
+                setTimeout(() => {
+                    message.remove();
+                }, 3000);
+            }
+        }
+
+        function resetVoting() {
+            if (confirm('Are you sure you want to reset your vote? You will be able to vote again.')) {
+                // Remove the user's previous vote from the data
+                const previousVote = localStorage.getItem('userPreviousVote');
+                if (previousVote && votingData[previousVote] && votingData[previousVote] > 0) {
+                    votingData[previousVote]--;
+                    localStorage.setItem('mythologyVotes', JSON.stringify(votingData));
+                }
+                
+                // Only reset the user's voting status, not the overall voting data
+                localStorage.removeItem('userVoted');
+                localStorage.removeItem('userPreviousVote');
+                hasVoted = false;
+                renderVotingOptions();
+                renderVotingResults(); // Re-render to show updated results
+            }
+        }
+
+        // Enhanced initialization
+        function enhancedInit() {
+            init(); // Call original init
+            addScrollAnimations();
+            enhancePieChartInteractions();
+            addSmoothScrolling();
+            enhanceMythologyCards();
+            addClickEffects();
+            enhanceSearchAndFilters();
+            addNumberCountingAnimation();
+            addGentleParallax();
+            initializeVoting(); // Initialize voting system
+        }
+
+        document.addEventListener('DOMContentLoaded', enhancedInit);
     </script>
 </body>
 </html>
